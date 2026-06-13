@@ -17,6 +17,13 @@
   height: 100vh;
   padding: 0;
 }
+header {
+  a {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+  }
+}
 h1 {
   text-decoration: underline;
   font-size: 2rem;
