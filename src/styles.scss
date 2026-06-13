@@ -1,0 +1,87 @@
+:root {
+  --h1-colour: #d88c9a;
+  --button-colour: #d88c9a;
+  --lh-color: #d88c9a;
+  --rh-color: #f2d0a9;
+  --button-hover-color: #f2d0a9;
+  --button-hover-text-color: #2c3e50;
+}
+#app-container {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;   
+  height: 100vh;
+  padding: 0;
+}
+h1 {
+  text-decoration: underline;
+  font-size: 2rem;
+  color: var(--h1-colour);
+}
+button {
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+  border: none;
+  background-color: var(--button-colour);;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+button:hover {
+  background-color: var(--button-hover-color);
+  color: var(--button-hover-text-color);
+}
+
+.banner-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.lh-banner,
+.rh-banner {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.lh-banner {
+  background-color: var(--lh-color);
+}
+.rh-banner {
+  background-color: var(--rh-color);
+}
+.copy,
+.title {
+  font-size: 1.25rem;
+  text-align: left;
+}
+.title {
+  font-weight: 600;
+}
+
+@media screen and (min-width: 46rem) {
+  h1 {
+    font-size: 3rem;
+  }
+  .banner-container {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .lh-banner,
+  .rh-banner {
+    flex-grow: 1;
+  }
+  .copy,
+  .title {
+    font-size: 1.5rem;
+  }
+}
