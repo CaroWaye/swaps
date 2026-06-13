@@ -1,6 +1,6 @@
 <template>
   <div id="app-container">
-    <h1>Sustainable Swaps</h1>
+    <h1>Swaps</h1>
     <button @click="move(1)" type="button">NEXT</button>
     <div class="banner-container">
       <div class="lh-banner">
