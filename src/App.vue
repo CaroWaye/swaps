@@ -4,7 +4,6 @@
       <a href="https://carodev.com/">Go back</a>
       <h1>Swaps</h1>
     </header>
-    <button @click="move(1)" type="button">NEXT</button>
     <div class="banner-container">
       <div class="lh-banner">
         <div class="copy-container">
@@ -13,6 +12,12 @@
           <span class="copy">{{ left }}</span></p>
         </div>
       </div>
+      <button @click="handleClick" :class="['refresh-btn', { spinning }]" type="button" aria-label="Next swap">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="23 4 23 10 17 10"/>
+          <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+        </svg>
+      </button>
       <div class="rh-banner">
         <div class="copy-container">
           <p>
@@ -29,6 +34,7 @@ import { ref, computed } from "vue";
 import { swapData } from "@/data/swaps"
 
 const index = ref(0);
+const spinning = ref(false);
 
 const left = computed(() => getSwapDataForIndex(index.value).left);
 const right = computed(() => getSwapDataForIndex(index.value).right);
@@ -45,6 +51,12 @@ function getSwapDataForIndex(swapIndex: number): Swap {
 
 function dataForIndex(index: number): Swap | null {
   return !!swapData[index] ? swapData[index] : null
+}
+
+function handleClick() {
+  move(1);
+  spinning.value = true;
+  setTimeout(() => { spinning.value = false; }, 500);
 }
 
 function move(change: number) {
